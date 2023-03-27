@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import {Department} from './components/Department/Department';
+import {Employee} from './components/Employee/Employee';
+import {Vacation} from './components/Vacation/Vacation';
+import Navigation from './components/Navigation/Navigation';
+import {BusinessTrip} from './components/BusinessTrip/BusinessTrip';
+
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <BrowserRouter>
+     <div className="container">
+      <h3 className='m-3 d-flex justify-content-center'>
+        Учёт сотрудников в организации
+      </h3>
+      <Navigation/>
+
+      <Routes>
+        <Route path='/' element={<Employee />} exact/>
+        <Route path='/department' element={<Department />}/>
+        <Route path='/vacation' element={<Vacation />}/>
+        <Route path='/businesstrip' element={<BusinessTrip />}/>
+     </Routes>
     </div>
+    </BrowserRouter>
+   
   );
 }
 
